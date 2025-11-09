@@ -34,3 +34,15 @@ body {
     top: 0;
     z-index: 100;
 }
+
+.logo {
+    width: 45px;
+    height: auto;
+    filter: drop-shadow(0 0 5px var(--gold));
+}
+
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
