@@ -51,6 +51,7 @@ body {
     width: 90%;
     max-width: 280px;
     padding: 8px 12px;
+    margin: 0 10px;
     border: 1px solid var(--gold);
     border-radius: 20px;
     background-color: #111;
@@ -58,4 +59,68 @@ body {
     font-size: 14px;
     outline: none;
     transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--gold-hover);
+    box-shadow: 0 0 6px var(--gold);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu-btn:hover {
+    color: var(--gold-hover);
+}
+
+.mobile-menu {
+    display: none;
+    background-color: #111;
+    border-top: 1px solid var(--gold);
+}
+
+.mobile-menu.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu li {
+    border-bottom: 1px solid var(--shadow);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.mobile-menu a:hover {
+    background-color: var(--gold);
+    color: var(--bg-dark);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
