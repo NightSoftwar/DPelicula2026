@@ -22,3 +22,15 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-light);
 }
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
