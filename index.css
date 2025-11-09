@@ -46,3 +46,16 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.search-input {
+    width: 90%;
+    max-width: 280px;
+    padding: 8px 12px;
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    background-color: #111;
+    color: var(--text-light);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
