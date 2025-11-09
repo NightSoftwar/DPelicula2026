@@ -7,3 +7,11 @@
 🔸 Sombras y detalles: #1a1a1a
 
 🔸 Hover dorado suave: #f5d76e */
+
+:root {
+  --bg-dark: #0d0d0d;
+  --gold: #d4af37;
+  --gold-hover: #f5d76e;
+  --text-light: #e0e0e0;
+  --shadow: #1a1a1a;
+}
