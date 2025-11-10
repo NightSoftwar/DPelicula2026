@@ -1,0 +1,58 @@
+.container-login {
+    margin: 120px auto;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #f5d76e;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-login .titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container-login .titulo i {
+    font-size: 35px;
+    margin-bottom: 15px;
+    color: #f5d76e;
+}
+
+.container-login .titulo h2 {
+    margin: 0px;
+    color: #f5d76e;
+}
+
+.container-login .formulario label {
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    color: #f5d76e;
+    transition: .5s ease all;
+}
+
+.container-login .formulario .floating-label {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.container-login .formulario .floating-label input {
+    width: 100%;
+    padding: 5px 0px;
+    font-size: 16px;
+    border: 2px solid #f5d76e;
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+    pointer-events: none;
+}
+
+.container-login .formulario .floating-label input:focus+label,
+.container-login .formulario .floating-label input:not(:placeholder-shown)+label {
+    top: -15px;
+    left: 0px;
+    font-size: 12px;
+    padding: 0 4px;
+}

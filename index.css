@@ -16,10 +16,14 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 10px;
     border-bottom: 4px double #d4af37;
-    position: sticky;
+    position: fixed; /* Cambiado de sticky a fixed */
+    top: 0; /* Asegura que esté pegado arriba */
+    width: 100%;
+    z-index: 1000;
+    background-color: #1a1a1a; /* Asegura que tenga fondo visible */
 }
 
 header .center input {
@@ -61,14 +65,16 @@ header .right button i:hover {
 
 /* MENU MOBILE */
 .menu-mobile {
-    background-color: #2e2c2c;
+    background-color: #201f1f;
     opacity: 0;
     max-width: 0px;
     width: 100%;
     overflow: hidden;
     transition: all .3s ease-in;
-    height: 100vh;
+    height: 89vh;
     position: absolute;
+    top: 87px;
+    z-index: 1000;
 }
 
 .menu-active {
