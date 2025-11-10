@@ -2,7 +2,7 @@
     margin: 120px auto;
     padding: 20px;
     border-radius: 20px;
-    border: 1px solid #f5d76e;
+    border: 1px solid #d4af37;
     max-width: 300px;
     display: flex;
     justify-content: center;
@@ -17,19 +17,18 @@
 .container-login .titulo i {
     font-size: 35px;
     margin-bottom: 15px;
-    color: #f5d76e;
 }
 
 .container-login .titulo h2 {
     margin: 0px;
-    color: #f5d76e;
+    color: #d4af37;
 }
 
 .container-login .formulario label {
     position: absolute;
     top: 6px;
     left: 10px;
-    color: #f5d76e;
+    color: #d4af37;
     transition: .5s ease all;
 }
 
@@ -42,11 +41,11 @@
     width: 100%;
     padding: 5px 0px;
     font-size: 16px;
-    border: 2px solid #f5d76e;
+    border: 2px solid #d4af37;
     border-radius: 4px;
     background: transparent;
     color: #fff;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .container-login .formulario .floating-label input:focus+label,
@@ -55,4 +54,18 @@
     left: 0px;
     font-size: 12px;
     padding: 0 4px;
+}
+.iniciar-btn{
+    background-color: #d4af37;
+    border-radius: 10px;
+    width: 70%;
+    padding: 5px 0px;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}
+.iniciar-btn:hover{
+    background-color: #f5d76e;
 }
