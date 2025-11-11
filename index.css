@@ -1,104 +1,134 @@
 :root {
-    --bg-dark: #0d0d0d;
-    --gold: #d4af37;
-    --gold-hover: #f5d76e;
-    --text-light: #e0e0e0;
-    --shadow: #1a1a1a;
+    --color-bg: #0A0A0A;
+    --color-red: #E50914;
+    --color-text: #FFFFFF;
+    --color-gray: #B3B3B3;
+    --menu-bg: rgba(10, 10, 10, 0.98);
 }
 
 body {
-    background-color: var(--bg-dark);
-    padding: 0px;
-    margin: 0px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
 }
 
-/* HEADER */
+/* --- Header --- */
 header {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 10px;
-    border-bottom: 4px double #d4af37;
-    position: fixed; /* Cambiado de sticky a fixed */
-    top: 0; /* Asegura que esté pegado arriba */
-    width: 100%;
-    z-index: 1000;
-    background-color: #1a1a1a; /* Asegura que tenga fondo visible */
+    justify-content: space-between;
+    padding: 12px 20px;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid #1a1a1a;
+    position: relative;
+    z-index: 100;
 }
 
-header .center input {
-    border-radius: 10px;
-    padding: 5px;
-    outline: none;
-    background-color: transparent;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-}
-
-header .center input::placeholder {
-    color: var(--gold);
-}
-
+/* --- Logo como texto --- */
 .logo {
-    max-width: 60px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    user-select: none;
+    text-transform: uppercase;
+    color: var(--color-text);
 }
 
-header .right button {
-    background-color: transparent;
-    color: var(--gold);
-    border: none;
+.logo .highlight {
+    color: var(--color-red);
 }
 
-header .right button:hover {
-    color: var(--gold-hover);
-}
-
-header .right button i {
-    font-size: 25px;
-    padding: 5px;
-}
-
-header .right button i:hover {
+/* --- Icono menú --- */
+.menu-icon {
+    font-size: 1.8rem;
     cursor: pointer;
-
+    transition: transform 0.3s ease;
 }
 
-/* MENU MOBILE */
-.menu-mobile {
-    background-color: #201f1f;
-    opacity: 0;
-    max-width: 0px;
+.menu-icon:hover {
+    transform: scale(1.1);
+}
+
+/* --- Menú desplegable pantalla completa --- */
+.mobile-menu {
+    position: fixed;
+    top: 60px;
+    right: 0;
     width: 100%;
-    overflow: hidden;
-    transition: all .3s ease-in;
-    height: 89vh;
-    position: absolute;
-    top: 87px;
-    z-index: 1000;
+    height: 100vh;
+    background: var(--menu-bg);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    text-align: center;
+    animation: fadeIn 0.3s ease forwards;
 }
 
-.menu-active {
-    opacity: 100;
-    max-width: 1000px;
+.mobile-menu.active {
+    display: flex;
 }
 
-.menu-mobile UL {
-    padding: 0PX;
-    margin: 0PX;
-}
-
-.menu-mobile ul li {
-    padding: 10PX calc(30%);
-    border-bottom: 1px solid #606060;
-}
-
-.menu-mobile ul li a {
+.mobile-menu a {
+    padding: 15px 0;
     text-decoration: none;
-    color: var(--gold);
-    font-size: 20px;
+    color: var(--color-text);
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
 }
 
-.menu-mobile ul li a:hover {
-    text-decoration: underline;
-    color: var(--gold-hover);
+.mobile-menu a:hover {
+    color: var(--color-red);
+}
+
+/* --- Botón para cerrar --- */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-red);
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+/* --- Animación de apertura --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Barra de búsqueda --- */
+.search-bar {
+    width: 90%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #1a1a1a;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+    box-shadow: 0 0 0 2px var(--color-red);
 }

@@ -1,6 +1,6 @@
-const botonNav = document.getElementById("menu-btn");
-const mobileNav = document.getElementById("menu-mobile")
-botonNav.addEventListener("click",(e) =>{
-    e.preventDefault()
-    mobileNav.classList.toggle("menu-active")
-})
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+});

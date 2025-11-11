@@ -2,56 +2,52 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./login.css">
-    <link rel="shortcut icon" href="./assets/Depelicula2026Logo.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/58af566668.js" crossorigin="anonymous"></script>
-    <title>DPelicula2026 - Iniciar Sección</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/DPelicula2026.ico" type="image/x-icon">
+  <title>DPelicula2026 - Login</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="./login.css">
 </head>
 
 <body>
-    <header>
-        <div class="left">
-            <img src="./assets/Depelicula2026Logo.ico" alt="Logo DPelicula" class="logo">
-        </div>
-        <div class="center">
-            <input type="text" placeholder="Buscar Pelicula...">
-        </div>
-        <div class="right">
-            <button id="menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </header>
-    <nav class="menu-mobile" id="menu-mobile">
-        <ul>
-            <li><a href="./index.html">Inicio</a></li>
-            <li><a href="./login.html">Iniciar Seccion</a></li>
-        </ul>
-    </nav>
-
-    <div class="container-login">
-        <div class="titulo">
-            <i class="fa-regular fa-circle-user" style="color: aliceblue;"></i>
-            <h2>Iniciar Sección</h2>
-        </div>
-        <form class="formulario" id="formulario">
-            <div class="floating-label">
-                <input type="text" id="usuario" placeholder=" " required>
-                <label for="usuario">Usuario</label>
-            </div>
-            <div class="floating-label">
-                <input type="password" id="clave" placeholder=" " required>
-                <label for="clave">Contraseña</label>
-            </div>
-            <button class="iniciar-btn" id="iniciar-btn">Iniciar Sección</button>
-        </form>
+  <header>
+    <div class="logo">
+      <span class="highlight">DP</span>elicula2026
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <div class="menu-icon" id="menuBtn">☰</div>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="./index.html">Inicio</a>
+    <a href="./login.html">Iniciar Sección</a>
+  </nav>
+
+  <!-- <div class="search-bar">
+    <input type="text" placeholder="Buscar película...">
+  </div> -->
+  <main class="login-container">
+    <div class="login-box">
+      <h1 class="login-title"><span class="highlight">Iniciar</span> Sesión</h1>
+      <form class="login-form">
+        <div class="input-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="usuario@correo.com" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn-login">Entrar</button>
+
+        <p class="register-link">¿No tienes cuenta? <a href="#">Regístrate</a></p>
+      </form>
+    </div>
+  </main>
+
+  <script src="index.js"></script>
 </body>
-<script src="./index.js"></script>
-<script src="./login.js"></script>
 
 </html>
