@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "josebriceno895@gmail.com",
+      "password": "30749279",
+      "name": "Jose Briceño",
+      "role": "dueño"
+    },
+    {
+      "id": 2,
+      "email": "usuario@correo.com",
+      "password": "abc123",
+      "name": "Usuario Regular",
+      "role": "user"
+    }
+  ]
+}

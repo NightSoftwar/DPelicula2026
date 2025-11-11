@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="./assets/DPelicula2026.ico" type="image/x-icon">
   <title>DPelicula2026</title>
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="./general.css">
 </head>
 
 <body>
@@ -26,7 +27,18 @@
     <input type="text" placeholder="Buscar película...">
   </div>
 
+  <div class="logout-modal" id="logoutModal">
+    <div class="logout-content">
+      <h2>¿Cerrar sesión?</h2>
+      <p id="logoutMessage">Tu sesión actual se cerrará.</p>
+      <div class="logout-actions">
+        <button id="cancelLogout" class="btn-cancel">Cancelar</button>
+        <button id="confirmLogout" class="btn-confirm">Cerrar Sesión</button>
+      </div>
+    </div>
+  </div>
   <script src="index.js"></script>
+  <script src="./general.js"></script>
 </body>
 
 </html>

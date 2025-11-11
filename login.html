@@ -8,6 +8,7 @@
   <title>DPelicula2026 - Login</title>
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="./login.css">
+  <link rel="stylesheet" href="./general.css">
 </head>
 
 <body>
@@ -47,7 +48,20 @@
     </div>
   </main>
 
+  <div class="logout-modal" id="logoutModal">
+    <div class="logout-content">
+      <h2>¿Cerrar sesión?</h2>
+      <p id="logoutMessage">Tu sesión actual se cerrará.</p>
+      <div class="logout-actions">
+        <button id="cancelLogout" class="btn-cancel">Cancelar</button>
+        <button id="confirmLogout" class="btn-confirm">Cerrar Sesión</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast"></div>
   <script src="index.js"></script>
+  <script src="./login.js"></script>
+  <script src="./general.js"></script>
 </body>
 
 </html>

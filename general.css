@@ -1,0 +1,88 @@
+.logout-modal {
+    position: fixed;
+    top: -200px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.952);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.logout-modal.active {
+    display: flex;
+}
+
+.logout-content {
+    background-color: #111;
+    padding: 30px 40px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #222;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    max-width: 320px;
+    width: 90%;
+    animation: slideUp 0.3s ease forwards;
+}
+
+.logout-content h2 {
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+.logout-content p {
+    color: var(--color-gray);
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.logout-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-cancel,
+.btn-confirm {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel {
+    background-color: #1a1a1a;
+    color: var(--color-gray);
+}
+
+.btn-cancel:hover {
+    background-color: #222;
+}
+
+.btn-confirm {
+    background-color: var(--color-red);
+    color: var(--color-text);
+}
+
+.btn-confirm:hover {
+    background-color: #f6121d;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
