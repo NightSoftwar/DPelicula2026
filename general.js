@@ -1,3 +1,9 @@
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+});
 document.addEventListener("DOMContentLoaded", () => {
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
     const mobileMenu = document.getElementById("mobileMenu");
