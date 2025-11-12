@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             .map(
                 (p) => `
         <div class="pelicula-card">
-          <img src="${p.imagenes?.[0] || './assets/no-image.jpg'}" alt="${p.titulo}">
+          <img src="${p.portadaImg || './assets/no-image.jpg'}" alt="${p.titulo}">
           <div class="pelicula-info">
             <h2>${p.titulo}</h2>
             <p><b>Género:</b> ${p.genero}</p>

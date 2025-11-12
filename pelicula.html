@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPelicula2026 - Pelicula</title>
+    <link rel="stylesheet" href="./general.css">
+    <link rel="stylesheet" href="./pelicula.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span class="highlight">DP</span>elicula2026
+        </div>
+        <div class="menu-icon" id="menuBtn">☰</div>
+    </header>
+
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="./index.html">Inicio</a>
+        <a href="./login.html">Iniciar Sección</a>
+    </nav>
+
+    <main class="pelicula-detalle">
+        <div class="loading">Cargando película...</div>
+    </main>
+    <div class="logout-modal" id="logoutModal">
+        <div class="logout-content">
+            <h2>¿Cerrar sesión?</h2>
+            <p id="logoutMessage">Tu sesión actual se cerrará.</p>
+            <div class="logout-actions">
+                <button id="cancelLogout" class="btn-cancel">Cancelar</button>
+                <button id="confirmLogout" class="btn-confirm">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="./pelicula.js"></script>
+<script src="./general.js"></script>
+
+</html>

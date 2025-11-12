@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             anio: parseInt(form.anio.value),
             genero: form.genero.value,
             director: form.director.value.trim(),
+            portadaImg: form.portadaImg.value.trim(),
             imagenes: [
                 form.imagen1.value,
                 form.imagen2.value,
