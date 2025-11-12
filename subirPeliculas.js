@@ -39,6 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             rating: parseFloat(form.rating.value) || "N/A",
             urlTrailer: form.urlTrailer.value.trim(),
+            idioma: form.idioma.value.trim(),
+            audio: form.audio.value.trim(),
+            formato: form.formato.value.trim(),
+            resolucion: form.resolucion.value.trim(),
+            linkDescarga: form.linkDescarga.value.trim(),
             usuario: loggedUser.name,
             fechaRegistro: serverTimestamp()
         };

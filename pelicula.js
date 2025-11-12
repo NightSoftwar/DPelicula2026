@@ -8,44 +8,74 @@ const id = params.get("id");
 const main = document.querySelector(".pelicula-detalle");
 
 async function cargarPelicula() {
-    if (!id) {
-        main.innerHTML = `<p class="error">Película no encontrada.</p>`;
-        return;
+  if (!id) {
+    main.innerHTML = `<p class="error">Película no encontrada.</p>`;
+    return;
+  }
+
+  try {
+    const ref = doc(db, "peliculas", id);
+    const snap = await getDoc(ref);
+
+    if (!snap.exists()) {
+      main.innerHTML = `<p class="error">No se encontró la película con ID ${id}.</p>`;
+      return;
     }
 
-    try {
-        const ref = doc(db, "peliculas", id);
-        const snap = await getDoc(ref);
+    const pelicula = snap.data();
 
-        if (!snap.exists()) {
-            main.innerHTML = `<p class="error">No se encontró la película con ID ${id}.</p>`;
-            return;
-        }
-
-        const pelicula = snap.data();
-
-        main.innerHTML = `
+    main.innerHTML = `
   <div class='container-pelicula'>
     <div class="imagenes">
       ${pelicula.imagenes.map((img) => `
         <img src="${img}" alt="${pelicula.titulo}">
       `).join("")}
     </div>
+
     <div class="info">
       <h1>${pelicula.titulo}</h1>
       <p><strong>Género:</strong> ${pelicula.genero}</p>
       <p><strong>Año:</strong> ${pelicula.anio}</p>
       <p>${pelicula.descripcion}</p>
-      <div><iframe width="305" height="300" src="${pelicula.trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-      <a class="btn-volver" href="./index.html">⬅ Volver</a>
+
+            <div class="trailer">
+        <iframe 
+          src="${pelicula.trailer.replace("watch?v=", "embed/")}" 
+          title="Trailer de ${pelicula.titulo}" 
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <!-- 🔹 NUEVA SECCIÓN DETALLES -->
+      <div class="detalles">
+        <h2>🎬 Características</h2>
+        <ul>
+          <li><strong>Duración:</strong> ${pelicula.duracion || "N/A"} min</li>
+          <li><strong>Idioma:</strong> ${pelicula.idioma || "Español / Latino"}</li>
+          <li><strong>Audio:</strong> ${pelicula.audio || "Estéreo 2.0"}</li>
+          <li><strong>Formato:</strong> ${pelicula.formato || "MP4"}</li>
+          <li><strong>Resolución:</strong> ${pelicula.resolucion || "1080p"}</li>
+        </ul>
+      </div>
+
+
+      <div class="acciones">
+        <a class="btn-descargar" href="${pelicula.linkDescarga || '#'}" target="_blank" rel="noopener noreferrer">
+          ⬇ Descargar Película
+        </a>
+        <a class="btn-volver" href="./index.html">⬅ Volver</a>
+      </div>
     </div>
   </div>
 `;
 
-    } catch (err) {
-        console.error(err);
-        main.innerHTML = `<p class="error">Error al cargar la película.</p>`;
-    }
+
+
+  } catch (err) {
+    console.error(err);
+    main.innerHTML = `<p class="error">Error al cargar la película.</p>`;
+  }
 }
 
 cargarPelicula();

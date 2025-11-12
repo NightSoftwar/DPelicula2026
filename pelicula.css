@@ -1,18 +1,18 @@
 .container-pelicula {
     padding: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: 2rem auto;
     color: var(--color-text);
-    background: #121212;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(145deg, #0f0f0f, #1b1b1b);
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
     animation: fadeIn 0.6s ease;
 }
 
-/* Galería de imágenes */
+/* 🖼️ Galería */
 .imagenes {
     display: flex;
     overflow-x: auto;
@@ -25,7 +25,7 @@
     flex: 0 0 auto;
     width: 90%;
     max-width: 350px;
-    border-radius: 12px;
+    border-radius: 14px;
     object-fit: cover;
     scroll-snap-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -33,61 +33,143 @@
 
 .imagenes img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.7);
 }
 
-/* Información de la película */
+/* 🧾 Info */
 .info {
-    background: #1a1a1a;
-    border-radius: 12px;
-    padding: 1rem;
-    line-height: 1.6;
+    background: rgba(26, 26, 26, 0.95);
+    border-radius: 14px;
+    padding: 1.5rem;
+    line-height: 1.7;
+    backdrop-filter: blur(4px);
 }
 
 .info h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: var(--color-red);
     text-align: center;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .info p {
-    color: #ccc;
+    color: #ddd;
     font-size: 1rem;
     margin: 0.4rem 0;
 }
 
 .info strong {
-    color: var(--color-text);
+    color: #fff;
 }
 
-/* Botón volver */
-.btn-volver {
-    display: inline-block;
-    margin-top: 1rem;
+/* 🎥 Trailer */
+.trailer {
+    position: relative;
+    /* padding-bottom: 56.25%; */
+    /* height: 0; */
+    border-radius: 14px;
+    /* box-shadow: 0 0 15px rgba(229, 9, 20, 0.25); */
+    /* margin: 1rem 0; */
+    background: #000;
+    margin: 20px 0px;
+    /* overflow: hidden; */
+}
+
+.trailer iframe {
     width: 100%;
-    text-align: center;
-    background: var(--color-red);
-    color: white;
-    padding: 0.8rem 0px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    height: 100%;
+    border: none;
+    border-radius: 30px;
 }
 
-.btn-volver:hover {
-    background: #b20710;
+.detalles {
+    margin: 2rem 0px;
+    background: #141414;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    /* box-shadow: inset 0 0 12px rgba(229, 9, 20, 0.15); */
+    animation: fadeIn 0.5s ease;
+}
+
+.detalles h2 {
+    font-size: 1.3rem;
+    color: var(--color-red);
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.3rem;
+}
+
+.detalles ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detalles li {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin: 0.3rem 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.2rem;
+}
+
+.detalles strong {
+    color: #fff;
+}
+
+/* 🔘 Botones */
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.btn-volver,
+.btn-descargar {
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+    padding: 0.9rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+/* Descargar */
+.btn-descargar {
+    background: linear-gradient(90deg, #e50914, #b20710);
+    color: #fff;
+    box-shadow: 0 0 8px rgba(229, 9, 20, 0.3);
+}
+
+.btn-descargar:hover {
+    background: #ff1e2b;
     transform: scale(1.03);
 }
 
-/* Animación general */
+/* Volver */
+.btn-volver {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+.btn-volver:hover {
+    background: #3a3a3a;
+    transform: scale(1.03);
+}
+
+/* Animación */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -95,7 +177,7 @@
 }
 
 /* 💻 Desktop */
-@media (min-width: 700px) {
+@media (min-width: 768px) {
     .container-pelicula {
         flex-direction: row;
         gap: 2rem;
@@ -114,6 +196,16 @@
     }
 
     .info {
+        flex: 1;
+    }
+
+    .acciones {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .btn-volver,
+    .btn-descargar {
         flex: 1;
     }
 }
