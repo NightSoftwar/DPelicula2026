@@ -69,7 +69,7 @@
     text-align: center;
     background: var(--color-red);
     color: white;
-    padding: 0.8rem;
+    padding: 0.8rem 0px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;

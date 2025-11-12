@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 form.imagen3.value
             ],
             rating: parseFloat(form.rating.value) || "N/A",
+            urlTrailer: form.urlTrailer.value.trim(),
             usuario: loggedUser.name,
             fechaRegistro: serverTimestamp()
         };

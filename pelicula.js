@@ -36,6 +36,7 @@ async function cargarPelicula() {
       <p><strong>Género:</strong> ${pelicula.genero}</p>
       <p><strong>Año:</strong> ${pelicula.anio}</p>
       <p>${pelicula.descripcion}</p>
+      <div><iframe width="305" height="300" src="${pelicula.trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       <a class="btn-volver" href="./index.html">⬅ Volver</a>
     </div>
   </div>
