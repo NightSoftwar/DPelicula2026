@@ -39,7 +39,7 @@ async function cargarPelicula() {
       <p>${pelicula.descripcion}</p>
 
             <div class="trailer">
-        <iframe 
+        <iframe width="300" height="300"
           src="${pelicula.trailer.replace("watch?v=", "embed/")}" 
           title="Trailer de ${pelicula.titulo}" 
           frameborder="0"
