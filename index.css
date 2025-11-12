@@ -65,6 +65,7 @@ header {
     /* justify-content: center; */
     text-align: center;
     animation: fadeIn 0.3s ease forwards;
+    z-index: 10;
 }
 
 .mobile-menu.active {
@@ -131,4 +132,117 @@ header {
 
 .search-bar input:focus {
     box-shadow: 0 0 0 2px var(--color-red);
+}
+
+.movies-container {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.peliculas-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.pelicula-card {
+    background: #1e1e1e;
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.pelicula-card img {
+    /* aspect-ratio: 16 / 9; */
+    object-fit: contain;
+    /* mantiene el formato pantalla */
+    border-bottom: 1px solid #222;
+}
+
+.pelicula-card:hover {
+    transform: scale(1.02);
+}
+
+.pelicula-info {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.pelicula-info h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.pelicula-info p {
+    margin: 0.2rem 0;
+    color: #ccc;
+}
+
+.btn-ver {
+    margin-top: 0.5rem;
+    width: 100%;
+    background: #00b894;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.btn-ver:hover {
+    background: #019874;
+}
+
+.loading,
+.error,
+.empty {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.95rem;
+    padding: 1rem;
+}
+
+@media (min-width: 600px) {
+    .peliculas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+
+    .pelicula-card img {
+        height: 250px;
+    }
+}
+
+/* === MEJORAS PARA DESKTOP === */
+@media (min-width: 900px) {
+    .peliculas-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .pelicula-card img {
+        height: 280px;
+    }
+
+    .pelicula-info {
+        font-size: 1rem;
+    }
+
+    .btn-ver {
+        font-size: 1rem;
+    }
 }

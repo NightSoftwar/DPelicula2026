@@ -1,13 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
-    const loginLink = document.querySelector('#mobileMenu a[href="./login.html"]');
+    const mobileMenu = document.getElementById("mobileMenu");
+    const loginLink = mobileMenu.querySelector('a[href="./login.html"]');
+    const homeLink = mobileMenu.querySelector('a[href="./index.html"]');
 
     if (loggedUser && loginLink) {
         // Cambiar texto a "Cerrar Sesión"
         loginLink.textContent = "Cerrar Sesión";
         loginLink.href = "#";
 
-        // Referencias al modal
+        // Crear enlace "Subir Películas"
+        const uploadLink = document.createElement("a");
+        uploadLink.href = "./subirPeliculas.html";
+        uploadLink.textContent = "Subir Películas";
+
+        // Insertar justo después de "Inicio"
+        if (homeLink && homeLink.nextSibling) {
+            mobileMenu.insertBefore(uploadLink, homeLink.nextSibling);
+        } else {
+            mobileMenu.appendChild(uploadLink);
+        }
+
+        // === Manejo del modal de cierre de sesión ===
         const logoutModal = document.getElementById("logoutModal");
         const logoutMessage = document.getElementById("logoutMessage");
         const cancelLogout = document.getElementById("cancelLogout");
@@ -15,9 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         loginLink.addEventListener("click", (e) => {
             e.preventDefault();
-
-            // Personaliza el mensaje con el nombre
-            logoutMessage.innerHTML = `¿Seguro que deseas cerrar sesión<br>${loggedUser.name} ?`;
+            logoutMessage.innerHTML = `¿Seguro que deseas cerrar sesión?<br><strong>${loggedUser.name}</strong>`;
             logoutModal.classList.add("active");
         });
 
@@ -42,9 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.appendChild(overlay);
 
             setTimeout(() => (overlay.style.opacity = 1), 10);
-            setTimeout(() => {
-                window.location.href = "./index.html";
-            }, 500);
+            setTimeout(() => (window.location.href = "./index.html"), 500);
         });
     }
 });

@@ -18,7 +18,7 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
 
             // Redirigir luego de 1.5 s para que vea el mensaje
             setTimeout(() => {
-                window.location.href = "./index.html";
+                window.location.href = "./Administracion/subirPeliculas.html";
             }, 1500);
         } else {
             showToast("❌ Correo o contraseña incorrectos");
