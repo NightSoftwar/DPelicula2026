@@ -40,7 +40,9 @@ async function cargarPelicula() {
 
             <div class="trailer">
         <iframe
-          src="${pelicula.trailer.replace("watch?v=", "embed/")}" 
+          src="${pelicula.urlTrailer.includes('watch?v=')
+        ? pelicula.urlTrailer.replace('watch?v=', 'embed/')
+        : pelicula.urlTrailer}"
           title="Trailer de ${pelicula.titulo}" 
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
