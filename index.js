@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <img src="${p.portadaImg || './assets/no-image.jpg'}" alt="${p.titulo}">
           <div class="pelicula-info">
             <h2>${p.titulo}</h2>
-            <p><b>Género:</b> ${p.genero}</p>
+<p><strong>Géneros:</strong> ${p.generos.join(", ")}</p>
             <p><b>Año:</b> ${p.anio}</p>
             <p><b>Duración:</b> ${p.duracion} min</p>
             <p><b>Rating:</b> ⭐ ${p.rating}</p>

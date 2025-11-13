@@ -23,27 +23,36 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Evento Submit ---
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        const generosSeleccionados = Array.from(
+            document.querySelectorAll('input[name="genero"]:checked')
+        ).map(input => input.value);
 
         const pelicula = {
             titulo: form.titulo.value.trim(),
             descripcion: form.descripcion.value.trim(),
             duracion: parseInt(form.duracion.value),
             anio: parseInt(form.anio.value),
-            genero: form.genero.value,
+
+            // 👇 aquí cambiamos de 'genero' (string) a 'generos' (array)
+            generos: generosSeleccionados.length > 0 ? generosSeleccionados : ["Sin género"],
+
             director: form.director.value.trim(),
             portadaImg: form.portadaImg.value.trim(),
+
             imagenes: [
-                form.imagen1.value,
-                form.imagen2.value,
-                form.imagen3.value
-            ],
+                form.imagen1.value.trim(),
+                form.imagen2.value.trim(),
+                form.imagen3.value.trim()
+            ].filter(img => img), // elimina vacíos si alguno no se llena
+
             rating: parseFloat(form.rating.value) || "N/A",
-            urlTrailer: form.urlTrailer.value.trim(),
+            urlTrailer: form.trailer.value.trim(),
             idioma: form.idioma.value.trim(),
             audio: form.audio.value.trim(),
             formato: form.formato.value.trim(),
             resolucion: form.resolucion.value.trim(),
             linkDescarga: form.linkDescarga.value.trim(),
+
             usuario: loggedUser.name,
             fechaRegistro: serverTimestamp()
         };

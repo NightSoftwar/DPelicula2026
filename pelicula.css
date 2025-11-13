@@ -66,6 +66,7 @@
 
 /* 🎥 Trailer */
 .trailer {
+    margin-top: 40px;
     width: 100%;
 }
 .trailer iframe{

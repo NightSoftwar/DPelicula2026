@@ -34,7 +34,7 @@ async function cargarPelicula() {
 
     <div class="info">
       <h1>${pelicula.titulo}</h1>
-      <p><strong>Género:</strong> ${pelicula.genero}</p>
+<p><strong>Géneros:</strong> ${pelicula.generos.join(", ")}</p>
       <p><strong>Año:</strong> ${pelicula.anio}</p>
       <p>${pelicula.descripcion}</p>
 
