@@ -162,7 +162,7 @@ header {
     transition: transform 0.2s ease;
     display: flex;
     flex-direction: column;
-    max-width: 150px;
+    max-width: 180px;
 }
 
 .pelicula-card img {
