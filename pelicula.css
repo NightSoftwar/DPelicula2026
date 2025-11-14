@@ -69,10 +69,12 @@
     margin-top: 40px;
     width: 100%;
 }
-.trailer iframe{
+
+.trailer iframe {
     width: 100%;
     height: 300px;
 }
+
 .detalles {
     margin: 2rem 0px;
     background: #141414;
@@ -109,6 +111,25 @@
 .detalles strong {
     color: #fff;
 }
+
+/* .player {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+} */
 
 /* 🔘 Botones */
 .acciones {

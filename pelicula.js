@@ -49,6 +49,13 @@ async function cargarPelicula() {
           allowfullscreen>
         </iframe>
       </div>
+
+      <h2 class="section-title">🎬 Reproductor</h2>
+      <div class="player">
+        <iframe src="${pelicula.linkPelicula}"
+                allowfullscreen
+                allow="autoplay"></iframe>
+      </div>
       <!-- 🔹 NUEVA SECCIÓN DETALLES -->
       <div class="detalles">
         <h2>🎬 Características</h2>
