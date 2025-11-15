@@ -154,7 +154,7 @@ header {
 } */
 .peliculas-grid {
     display: flex;
-
+    justify-content: center;
 }
 
 .pelicula-card {
