@@ -187,7 +187,7 @@ header {
     padding: 0.8rem;
     font-size: 0.8rem;
     display: grid;
-    grid-template-rows: minmax(0,35px) auto auto auto auto minmax(0, 30px);
+    grid-template-rows: minmax(30px,35px) auto auto auto auto minmax(0, 30px);
 }
 
 .pelicula-info h2 {
