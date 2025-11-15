@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             rating: parseFloat(form.rating.value) || "N/A",
             urlTrailer: form.trailer.value.trim(),
+            linkPelicula: form.linkPelicula.value.trim(),
             idioma: form.idioma.value.trim(),
             audio: form.audio.value.trim(),
             formato: form.formato.value.trim(),
