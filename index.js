@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             todasLasPeliculas.sort((a, b) =>
                 a.titulo.localeCompare(b.titulo)
             );
+            generarGeneros();
             generarAnios();
             mostrarPeliculas(todasLasPeliculas);
 
@@ -106,7 +107,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         mostrarPeliculas(filtradas);
     }
+    function generarGeneros() {
+        // Extraer todos los géneros de todas las películas
+        const generos = new Set();
 
+        todasLasPeliculas.forEach(p => {
+            if (Array.isArray(p.generos)) {
+                p.generos.forEach(g => generos.add(g));
+            }
+        });
+
+        // Ordenar alfabéticamente
+        const listaOrdenada = [...generos].sort((a, b) => a.localeCompare(b));
+
+        // Insertar en el select
+        listaOrdenada.forEach(genero => {
+            const op = document.createElement("option");
+            op.value = genero;
+            op.textContent = genero;
+            filtroGenero.appendChild(op);
+        });
+    }
     // EVENTOS
     buscador.addEventListener("keyup", filtrarPeliculas);
     filtroGenero.addEventListener("change", filtrarPeliculas);
