@@ -27,6 +27,10 @@
   <meta name="twitter:description" content="Explora información de tus películas favoritas, estrenos y más." />
   <meta name="twitter:image" content="https://nightsoftwar.github.io/DPelicula2026/assets/cine-banner.jpg" />
 
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
 </head>
 
 <body>
@@ -54,6 +58,23 @@
       <option value="">Todos los años</option>
     </select>
   </div>
+  <section class="novedades-container">
+    <h2 class="page-title">✨ Últimas novedades</h2>
+
+    <div class="swiper novedades-swiper">
+      <div class="swiper-wrapper" id="novedadesLista">
+        <!-- Aquí van las cards -->
+      </div>
+
+      <!-- Flechas -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Paginación -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
   <main class="movies-container">
     <h2 class="page-title">🎬 Películas</h2>
 
@@ -73,6 +94,9 @@
   </div>
   <script src="index.js" type="module"></script>
   <script src="./general.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </body>
 
 </html>

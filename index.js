@@ -6,7 +6,6 @@ import {
     orderBy,
     limit
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-
 document.addEventListener("DOMContentLoaded", async () => {
 
     const lista = document.getElementById("peliculasLista");
@@ -134,5 +133,68 @@ document.addEventListener("DOMContentLoaded", async () => {
     filtroAnio.addEventListener("change", filtrarPeliculas);
 
     // INICIO
+    cargarNovedades()
     cargarPeliculas();
+    async function cargarNovedades() {
+        try {
+            const novedadesQuery = query(
+                collection(db, "peliculas"),
+                orderBy("fechaRegistro", "desc"),
+                limit(4)
+            );
+
+            const snapshot = await getDocs(novedadesQuery);
+
+            const novedades = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+
+            mostrarNovedades(novedades);
+
+        } catch (error) {
+            console.error("❌ Error al cargar novedades:", error);
+        }
+    }
+    function mostrarNovedades(novedades) {
+        const contenedor = document.getElementById("novedadesLista");
+
+        contenedor.innerHTML = novedades.map(p => `
+        <div class="swiper-slide">
+            <div class="novedad-card">
+                <img src="${p.portadaImg}" alt="${p.titulo}">
+                <div class="novedad-card-info">
+                    <h3>${p.titulo}</h3>
+                    <p>${p.anio}</p>
+                    <button class="btn-ver" data-id="${p.id}">Ver detalles</button>
+                </div>
+            </div>
+        </div>
+    `).join("");
+
+        inicializarSwiper();
+    }
+    function inicializarSwiper() {
+        new Swiper(".novedades-swiper", {
+            slidesPerView: 2,
+            spaceBetween: 15,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                600: { slidesPerView: 3 },
+                900: { slidesPerView: 4 },
+            }
+        });
+    }
 });
