@@ -186,7 +186,6 @@ header {
     transition: transform 0.2s ease;
     display: flex;
     flex-direction: column;
-    max-width: 150px;
 }
 
 .pelicula-card img {
@@ -229,83 +228,99 @@ header {
     font-size: 0.9rem;
 }
 
-/* ======== NOVEDADES ======== */
-.novedades-container {
-    margin-top: 2rem;
+/* CONTENEDOR */
+.novedades-swiper {
+    padding: 40px 0;
+    perspective: 1200px;
+    /* activamos 3D */
 }
 
-.novedades-swiper {
-    margin: 0 20px;
-    /* width: 100%;
-    padding-bottom: 25px; */
+/* SLIDES */
+.swiper-slide {
+    width: 190px;
+    transition: transform .4s ease, opacity .4s ease;
+    transform-style: preserve-3d;
 }
 
 /* CARD */
 .novedad-card {
-    background: #151515;
-    border-radius: 12px;
-    /* width: 150px; */
+    background: #121212;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        0 0 0 rgba(255, 0, 0, 0);
+    transition: box-shadow .3s ease;
+    backdrop-filter: blur(4px);
 }
 
-.novedad-card:hover {
-    transform: scale(1.06);
+/* SLIDE ACTIVO = MÁS BRILLO */
+.swiper-slide-active .novedad-card {
+    box-shadow:
+        0 15px 35px rgba(255, 50, 50, 0.35),
+        0 0 20px rgba(255, 50, 50, 0.35);
 }
 
+/* IMAGEN */
 .novedad-card img {
     width: 100%;
-    height: 170px;
-    object-fit: cover;
+    height: 200px;
+    object-fit: contain;
 }
 
 .novedad-card-info {
-    padding: .7rem .8rem;
-    display: grid;
-    grid-template-rows: auto auto 45px;
+    padding: .7rem;
+    text-align: center;
 }
 
 .novedad-card-info h3 {
-    font-size: .95rem;
-    margin: 0 0 5px 0;
-    font-weight: 700;
+    font-size: 1rem;
+    margin: 5px 0;
 }
 
 .novedad-card-info p {
-    font-size: .8rem;
+    /* text-align: left; */
+    font-size: 1rem;
+    /* margin: 0px;
+    margin-left: 40px; */
     color: #aaa;
 }
 
+/* BOTÓN */
 .novedad-card .btn-ver {
     width: 100%;
-    margin-top: .6rem;
+    margin-top: .5rem;
     padding: .45rem 0;
     border: none;
-    border-radius: 6px;
-    background: #ff4747;
+    border-radius: 8px;
+    background: #ff2020;
     color: white;
     cursor: pointer;
     font-size: .8rem;
+    font-weight: 600;
+    transition: .2s ease;
 }
 
-.novedad-card .btn-ver:hover {
-    background: #ff2d2d;
-}
+/* .novedad-card .btn-ver:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 15px rgba(255, 40, 40, 0.6);
+} */
 
-/* FLECHAS SWIPER */
+/* FLECHAS */
 .swiper-button-next,
 .swiper-button-prev {
     color: #ff4747;
+    text-shadow: 0 0 12px rgba(255, 70, 70, 0.6);
 }
 
+/* PUNTOS */
 .swiper-pagination-bullet {
-    background: #aaa;
+    background: #777;
 }
 
 .swiper-pagination-bullet-active {
     background: #ff4747;
 }
-
 
 .btn-ver:hover {
     background: #019874;
@@ -320,32 +335,200 @@ header {
     padding: 1rem;
 }
 
-@media (min-width: 600px) {
+/* ===========================================================
+   📱 1. Smartphones muy pequeños (0px – 360px)
+   =========================================================== */
+@media (max-width: 360px) {
+    body{
+        width: 150vw;
+    }
     .peliculas-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.2rem;
+        gap: 5px !important;
     }
 
-    .pelicula-card img {
-        height: 250px;
+    .pelicula-card {
+        max-width: 220px !important;
+    }
+    .pelicula-info h2{
+        font-size: 18px;
+    }
+    .pelicula-info p{
+        font-size: 16px;
     }
 }
 
-@media (min-width: 900px) {
+/* ===========================================================
+   📱 2. Smartphones normales (360px – 480px)
+   =========================================================== */
+@media (max-width: 480px) {
+    .peliculas-grid {
+        gap: 12px;
+    }
+
+    .pelicula-card {
+        max-width: 160px;
+    }
+}
+
+/* ===========================================================
+   📱 3. Smartphones grandes (480px – 600px)
+   =========================================================== */
+@media (min-width: 480px) and (max-width: 600px) {
+    .peliculas-grid {
+        gap: 15px;
+    }
+
+    .pelicula-card {
+        max-width: 160px;
+    }
+}
+
+/* ===========================================================
+   📱💻 4. Tablets verticales (600px – 768px)
+   =========================================================== */
+@media (min-width: 600px) and (max-width: 768px) {
+    .peliculas-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .novedades-swiper {
+        max-width: 90%;
+        margin: auto;
+    }
+}
+
+/* ===========================================================
+   💻 5. Tablets horizontales / Laptops pequeñas (768px – 1024px)
+   =========================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    header {
+        padding: 18px 40px;
+    }
+
+    .search-bar {
+        width: 70%;
+    }
+
+    .filters {
+        width: 70%;
+    }
+
     .peliculas-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
+        gap: 20px;
     }
 
-    .pelicula-card img {
-        height: 280px;
+    .novedades-swiper {
+        max-width: 800px;
+        margin: auto;
+    }
+}
+
+/* ===========================================================
+   🖥️ 6. Laptops estándar (1024px – 1280px)
+   =========================================================== */
+@media (min-width: 1024px) and (max-width: 1280px) {
+    header {
+        justify-content: space-between;
+        padding: 20px 50px;
     }
 
-    .pelicula-info {
-        font-size: 1rem;
+    .movies-container {
+        max-width: 1100px;
     }
 
-    .btn-ver {
-        font-size: 1rem;
+    .peliculas-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .novedades-swiper {
+        max-width: 900px;
+    }
+}
+
+/* ===========================================================
+   🖥️ 7. Monitores grandes (1280px – 1440px)
+   =========================================================== */
+@media (min-width: 1280px) and (max-width: 1440px) {
+    header {
+        padding: 22px 65px;
+    }
+
+    .movies-container {
+        max-width: 1200px;
+    }
+
+    .peliculas-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 28px;
+    }
+
+    .novedades-swiper {
+        max-width: 1000px;
+    }
+}
+
+/* ===========================================================
+   🖥️🔥 8. Monitores muy grandes / Full HD (1440px – 1920px)
+   =========================================================== */
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .movies-container {
+        max-width: 1400px;
+    }
+
+    .peliculas-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 30px;
+    }
+
+    .novedades-swiper {
+        max-width: 1200px;
+    }
+
+    .novedad-card img {
+        height: 220px;
+    }
+}
+
+/* ===========================================================
+   🖥️🔶 9. UltraWide 2K / 4K (1920px – 2600px)
+   =========================================================== */
+@media (min-width: 1920px) and (max-width: 2600px) {
+    body {
+        zoom: 1.15;
+        /* Escala todo suavemente */
+    }
+
+    .movies-container {
+        max-width: 1600px;
+    }
+
+    .peliculas-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 35px;
+    }
+
+    .novedades-swiper {
+        max-width: 1350px;
+    }
+}
+
+/* ===========================================================
+   🖥️👑 10. 4K grandes (2600px+)
+   =========================================================== */
+@media (min-width: 2600px) {
+    body {
+        zoom: 1.3;
+    }
+
+    .peliculas-grid {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 40px;
+    }
+
+    .novedades-swiper {
+        max-width: 1500px;
     }
 }

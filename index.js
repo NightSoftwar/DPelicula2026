@@ -165,7 +165,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <img src="${p.portadaImg}" alt="${p.titulo}">
                 <div class="novedad-card-info">
                     <h3>${p.titulo}</h3>
-                    <p>${p.anio}</p>
+                    <p>Año: ${p.anio}</p>
+                    <p>Duración: ${p.duracion} Minutos</p>
                     <button class="btn-ver" data-id="${p.id}">Ver detalles</button>
                 </div>
             </div>
@@ -176,24 +177,50 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     function inicializarSwiper() {
         new Swiper(".novedades-swiper", {
-            slidesPerView: 2,
-            spaceBetween: 15,
+            centeredSlides: true,
+            slidesPerView: "auto",
             loop: true,
+            spaceBetween: 30,
+            grabCursor: true,
+
             autoplay: {
-                delay: 2500,
+                delay: 5000,
                 disableOnInteraction: false,
             },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+
+            // 🔥 NECESARIO PARA QUE LOS BOTONES FUNCIONEN
             navigation: {
                 nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+                prevEl: ".swiper-button-prev"
             },
-            breakpoints: {
-                600: { slidesPerView: 3 },
-                900: { slidesPerView: 4 },
+
+            on: {
+                progress(swiper) {
+                    swiper.slides.forEach((slide, index) => {
+                        const slideProgress = slide.progress;
+
+                        // ESCALA 3D
+                        const scale = 1 - Math.abs(slideProgress) * 0.25;
+
+                        // PROFUNDIDAD
+                        const translateZ = -Math.abs(slideProgress) * 120;
+
+                        // OPACIDAD LATERAL
+                        const opacity = 1 - Math.abs(slideProgress) * 0.6;
+
+                        slide.style.transform = `
+                        translateZ(${translateZ}px)
+                        scale(${scale})
+                    `;
+                        slide.style.opacity = opacity;
+                    });
+                },
+
+                setTransition(swiper, duration) {
+                    swiper.slides.forEach(slide => {
+                        slide.style.transition = `${duration}ms`;
+                    });
+                }
             }
         });
     }
