@@ -309,7 +309,7 @@ header {
 } */
 .premium-card {
     position: relative;
-    width: 100vw;
+    width: 150vw;
     height: 420px;
     border-radius: 20px;
     overflow: hidden;
