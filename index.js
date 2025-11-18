@@ -159,28 +159,43 @@ document.addEventListener("DOMContentLoaded", async () => {
     function mostrarNovedades(novedades) {
         const contenedor = document.getElementById("novedadesLista");
 
-        contenedor.innerHTML = novedades.map(p => `
-        <div class="swiper-slide">
-            <div class="novedad-card">
-                <img src="${p.portadaImg}" alt="${p.titulo}">
-                <div class="novedad-card-info">
-                    <h3>${p.titulo}</h3>
-                    <p>Año: ${p.anio}</p>
-                    <p>Duración: ${p.duracion} Minutos</p>
-                    <button class="btn-ver" data-id="${p.id}">Ver detalles</button>
+        contenedor.innerHTML = novedades.map(p => {
+
+            const reciente = esReciente(p.fechaRegistro, 30);
+
+            return `
+    <div class="swiper-slide">
+        <div class="premium-card" style="--dominant-color: ${p.color || "#e50914"}">
+                <div class="rating">
+                    ⭐ <span>${p.rating}</span>
                 </div>
+            <!-- IMAGEN -->
+            <img class="premium-img" src="${p.portadaImg}" alt="${p.titulo}" />
+
+            <!-- OVERLAY INFO -->
+            <div class="premium-info">
+
+                <h3>${p.titulo}</h3>
+
+                <p>${p.anio} • ${p.duracion} min</p>
+
+                <button class="premium-btn" data-id="${p.id}">
+                    Ver detalles
+                </button>
             </div>
+
         </div>
-    `).join("");
+    </div>`;
+        }).join("");
 
         inicializarSwiper();
     }
     function inicializarSwiper() {
         new Swiper(".novedades-swiper", {
             centeredSlides: true,
-            slidesPerView: "auto",
+            slidesPerView: 1,  // 🔥 SOLO 1 SLIDE VISIBLE
             loop: true,
-            spaceBetween: 30,
+            spaceBetween: 0,  // Para que quede perfecto al centro
             grabCursor: true,
 
             autoplay: {
@@ -188,15 +203,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                 disableOnInteraction: false,
             },
 
-            // 🔥 NECESARIO PARA QUE LOS BOTONES FUNCIONEN
             navigation: {
                 nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
+                prevEl: ".swiper-button-prev",
             },
 
             on: {
                 progress(swiper) {
-                    swiper.slides.forEach((slide, index) => {
+                    swiper.slides.forEach(slide => {
                         const slideProgress = slide.progress;
 
                         // ESCALA 3D
@@ -223,5 +237,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
             }
         });
+    }
+
+    function esReciente(fechaEstreno, dias = 30) {
+        const estreno = new Date(fechaEstreno);
+        const hoy = new Date();
+        const diff = (hoy - estreno) / (1000 * 60 * 60 * 24);
+        return diff <= dias;
     }
 });

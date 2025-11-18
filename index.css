@@ -207,7 +207,6 @@ header {
 .pelicula-info h2 {
     font-size: 0.9rem;
     text-align: center;
-    margin: 0px;
 }
 
 .pelicula-info p {
@@ -228,21 +227,17 @@ header {
     font-size: 0.9rem;
 }
 
-/* CONTENEDOR */
-.novedades-swiper {
+/* .novedades-swiper {
     padding: 40px 0;
     perspective: 1200px;
-    /* activamos 3D */
 }
 
-/* SLIDES */
 .swiper-slide {
     width: 190px;
     transition: transform .4s ease, opacity .4s ease;
     transform-style: preserve-3d;
 }
 
-/* CARD */
 .novedad-card {
     background: #121212;
     border-radius: 16px;
@@ -254,14 +249,12 @@ header {
     backdrop-filter: blur(4px);
 }
 
-/* SLIDE ACTIVO = MÁS BRILLO */
 .swiper-slide-active .novedad-card {
     box-shadow:
         0 15px 35px rgba(255, 50, 50, 0.35),
         0 0 20px rgba(255, 50, 50, 0.35);
 }
 
-/* IMAGEN */
 .novedad-card img {
     width: 100%;
     height: 200px;
@@ -279,14 +272,10 @@ header {
 }
 
 .novedad-card-info p {
-    /* text-align: left; */
     font-size: 1rem;
-    /* margin: 0px;
-    margin-left: 40px; */
     color: #aaa;
 }
 
-/* BOTÓN */
 .novedad-card .btn-ver {
     width: 100%;
     margin-top: .5rem;
@@ -301,19 +290,12 @@ header {
     transition: .2s ease;
 }
 
-/* .novedad-card .btn-ver:hover {
-    transform: scale(1.07);
-    box-shadow: 0 0 15px rgba(255, 40, 40, 0.6);
-} */
-
-/* FLECHAS */
 .swiper-button-next,
 .swiper-button-prev {
     color: #ff4747;
     text-shadow: 0 0 12px rgba(255, 70, 70, 0.6);
 }
 
-/* PUNTOS */
 .swiper-pagination-bullet {
     background: #777;
 }
@@ -324,6 +306,135 @@ header {
 
 .btn-ver:hover {
     background: #019874;
+} */
+.premium-card {
+    position: relative;
+    width: 100vw;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+    transition: transform .35s ease, box-shadow .35s ease;
+    cursor: pointer;
+}
+
+/* .premium-card:hover {
+    transform: scale(1.06);
+    box-shadow: 0 25px 40px rgba(255, 50, 50, 0.3);
+} */
+
+.premium-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.premium-card:hover .premium-img {
+    transform: scale(1.15);
+}
+
+.premium-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.5), transparent);
+    color: white;
+}
+
+.rating {
+    background: rgba(20,20,20,0.7);
+    color: #f5c518;
+    width: 60px;
+    height: 30px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.badge-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 5;
+}
+
+.badge {
+    padding: 4px 10px;
+    font-size: .75rem;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+}
+
+.badge.nuevo {
+    background: #e50914;
+}
+
+.badge.top {
+    background: #ff8c00;
+}
+
+.badge.calidad {
+    background: #0098ff;
+}
+
+.premium-btn {
+    display: block;
+    margin: 0px auto;
+    width: 80%;
+    padding: .8rem 0px;
+    border: none;
+    border-radius: 10px;
+    background: #e50914;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .25s, background .25s;
+}
+
+.premium-btn:hover {
+    background: #b00610;
+    transform: scale(1.04);
+}
+
+.novedades-container {
+    width: 100%;
+}
+
+.novedades-swiper {
+    width: 100% !important;
+    /* 🔥 OCUPA TODO EL ANCHO */
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.swiper-wrapper {
+    width: 100% !important;
+}
+
+.swiper-slide {
+    width: 100% !important;
+    /* 🔥 SOLO UNA SLIDE VISIBLE */
+    display: flex;
+    justify-content: center;
+    /* 🔥 CENTRA LA TARJETA */
+    align-items: center;
 }
 
 .loading,
@@ -339,21 +450,36 @@ header {
    📱 1. Smartphones muy pequeños (0px – 360px)
    =========================================================== */
 @media (max-width: 360px) {
-    body{
+    body {
         width: 150vw;
     }
+
     .peliculas-grid {
         gap: 5px !important;
     }
 
     .pelicula-card {
-        max-width: 220px !important;
+        max-width: 45% !important;
     }
-    .pelicula-info h2{
+
+    .pelicula-info {
+        grid-template-rows: minmax(60px, 55px) auto auto auto auto minmax(0px, 50px);
+    }
+
+    .pelicula-info h2 {
         font-size: 18px;
     }
-    .pelicula-info p{
+
+    .pelicula-info p {
         font-size: 16px;
+    }
+
+    .novedad-card-info .btn-ver {
+        font-size: 20px;
+    }
+
+    .btn-ver {
+        font-size: 20px;
     }
 }
 
