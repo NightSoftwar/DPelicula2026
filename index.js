@@ -251,3 +251,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         return diff <= dias;
     }
 });
+
+// Prueba
