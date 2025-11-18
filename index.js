@@ -187,7 +187,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
     </div>`;
         }).join("");
-
+        document.querySelectorAll(".premium-btn").forEach(btn => {
+            btn.addEventListener("click", e => {
+                const id = e.target.dataset.id;
+                window.location.href = `./pelicula.html?id=${id}`;
+            });
+        });
         inicializarSwiper();
     }
     function inicializarSwiper() {
