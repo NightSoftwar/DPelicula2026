@@ -602,24 +602,11 @@ header {
 /* ===========================================================
    🖥️🔥 8. Monitores muy grandes / Full HD (1440px – 1920px)
    =========================================================== */
-/* @media (min-width: 1440px) and (max-width: 1920px) {
-    .movies-container {
-        max-width: 1400px;
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .premium-card {
+        width: 100vw;
     }
-
-    .peliculas-grid {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 30px;
-    }
-
-    .novedades-swiper {
-        max-width: 1200px;
-    }
-
-    .novedad-card img {
-        height: 220px;
-    }
-} */
+}
 
 /* ===========================================================
    🖥️🔶 9. UltraWide 2K / 4K (1920px – 2600px)
