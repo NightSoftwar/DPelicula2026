@@ -557,9 +557,9 @@ header {
 /* ===========================================================
    💻 5. Tablets horizontales / Laptops pequeñas (768px – 1024px)
    =========================================================== */
-/* @media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .premium-card {
-        width: 50vw !important;
+        width: 100vw !important;
     }
 
     .pelicula-card {
@@ -567,7 +567,7 @@ header {
         background-color: red;
         padding: 500px;
     }
-} */
+}
 
 /* ===========================================================
    🖥️ 6. Laptops estándar (1024px – 1280px)
@@ -576,7 +576,7 @@ header {
     .premium-card {
         width:  100vw !important;
     }
-} */
+}
 
 /* ===========================================================
    🖥️ 7. Monitores grandes (1280px – 1440px)
