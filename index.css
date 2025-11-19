@@ -217,7 +217,7 @@ header {
 .btn-ver {
     margin-top: 0.5rem;
     width: 100%;
-    background: #00b894;
+    background: #e50914;
     border: none;
     padding: 0.6rem;
     border-radius: 6px;
@@ -225,6 +225,10 @@ header {
     color: white;
     font-weight: bold;
     font-size: 0.9rem;
+}
+
+.btn-ver:hover {
+    background-color: #b00610;
 }
 
 /* .novedades-swiper {
@@ -564,7 +568,6 @@ header {
 
     .pelicula-card {
         max-width: 200px;
-        background-color: red;
         padding: 500px;
     }
 }
@@ -576,9 +579,11 @@ header {
     .premium-card {
         width: 100vw !important;
     }
-    .movies-container{
+
+    .movies-container {
         max-width: 1500px;
     }
+
     .pelicula-card {
         max-width: 200px;
         padding: 500px;
