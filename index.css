@@ -581,7 +581,6 @@ header {
     }
     .pelicula-card {
         max-width: 200px;
-        background-color: red;
         padding: 500px;
     }
 }
