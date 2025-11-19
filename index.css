@@ -576,6 +576,14 @@ header {
     .premium-card {
         width: 100vw !important;
     }
+    .movies-container{
+        max-width: 1500px;
+    }
+    .pelicula-card {
+        max-width: 200px;
+        background-color: red;
+        padding: 500px;
+    }
 }
 
 /* ===========================================================
@@ -592,7 +600,7 @@ header {
 
     .pelicula-info {
         grid-template-rows: minmax(60px, 55px) minmax(30px, 30px) auto auto auto minmax(30px, 30px);
-        background-color: red;
+        /* background-color: red; */
     }
 
     .pelicula-card {
