@@ -252,4 +252,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
-// Prueba
