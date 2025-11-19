@@ -592,6 +592,7 @@ header {
 
     .pelicula-info {
         grid-template-rows: minmax(60px, 55px) minmax(30px, 30px) auto auto auto minmax(30px, 30px);
+        background-color: red;
     }
 
     .pelicula-card {
